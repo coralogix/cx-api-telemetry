@@ -1,3 +1,3 @@
-## N/A
+# cx-api-telemetry
 
-This is a blank repository ready for your project.
+This is a repository that contains the Protobuf message and service definitions for the Coralogix telemetry API.

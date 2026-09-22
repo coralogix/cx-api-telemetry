@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package com.coralogix.ingress.otlp.v1;
+
+option java_multiple_files = true;
+option java_package = "com.coralogix.ingress.otlp.v1";
+option java_outer_classname = "TelemetryServiceProto";
+
+import "com/coralogix/ingress/otlp/v1/telemetry.proto";
+
+service TelemetryService {
+  rpc Export(ExportTelemetryServiceRequest) returns (ExportTelemetryServiceResponse) {}
+}
+
+message ExportTelemetryServiceRequest {
+  com.coralogix.ingress.otlp.v1.Telemetry telemetry = 1;
+}
+
+message ExportTelemetryServiceResponse {
+  ExportTelemetryPartialSuccess partial_success = 1;
+}
+
+message ExportTelemetryPartialSuccess {
+  int64 rejected_items = 1;
+  string error_message = 2;
+}
